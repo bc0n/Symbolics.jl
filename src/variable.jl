@@ -313,7 +313,12 @@ julia> Symbolics.scalarize(z)
  z[3](t)
 ```
 
-Note that `@variables` returns a vector of all the defined variables.
+Note that `@variables` returns a vector of all the defined variables, allowing 
+latex variable display and non-latex references.
+```julia
+th, om = @variables var"\theta" var"\omega"
+x = th*3 + om/2
+```
 
 `@variables` can also take runtime symbol values by the `\$` interpolation
 operator, and in this case, `@variables` doesn't automatically assign the value,
